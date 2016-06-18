@@ -31,7 +31,7 @@
     <Compile Include="Skus.ps1" />
     <Compile Include="Offer.ps1" />
     <Compile Include="Login.ps1" />
-    <Compile Include="Windows 10 mcon VS.ps1" />
+    <Compile Include="Windows 10 Visual Studio.ps1" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="Build" />
