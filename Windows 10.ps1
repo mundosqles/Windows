@@ -1,42 +1,40 @@
-﻿#
+#
 # Windows 10 Enterprise
-# Visual Studio 2015
-# Azure SDK 2.9
 # http://www.mundosql.es/
 #
 
 Clear
 
 # Datos GR
-$rgName                 = "Windows10_VS"
+$rgName                 = "Windows10_SOLO"
 $location               = "North Europe"
 
 # Datos red
-$vnetName               = "win10vsred"
+$vnetName               = "win10solored"
 $vnetPrefix             = "10.0.10.0/16"
-$subnetName             = "win10vssubred"
+$subnetName             = "win10solosubred"
 $subnetPrefix           = "10.0.10.0/24"
 
 # Datos almacenamiento
-$stdStorageAccountName = "win10vsalma"
+$stdStorageAccountName = "win10soloalma"
 
 # Datos VM
 $vmSize                = "Standard_D2_v2" #7GB 2Nic
 #$vmSize               = "Standard_D3_v2" #14GB 4Nic
 $diskSize              = 150
 $publisher             = "MicrosoftVisualStudio"
-$offer                 = "VisualStudio"
-$sku                   = "VS-2015-Comm-VSU2-AzureSDK-29-W10T-N-x64"
+$offer                 = "Windows"
+$sku                   = "10-Enterprise-N"
 $version               = "latest"
-$vmName                = "win10vsvm"
+$vmName                = "win10solovm"
 $osDiskName            = "osdisk"
-$nicName               = "win10vsnic"
+$nicName               = "win10solonic"
 $privateIPAddress      = "10.0.10.10"
-$pipName               = "win10vsip"
-$dnsName               = "win10vsdns"
+$pipName               = "win10soloip"
+$dnsName               = "win10solodns"
 
 
-Write-Host("Desplegando Grupo de Recursos ... Windows10_VS") -ForegroundColor Cyan
+Write-Host("Desplegando Grupo de Recursos ... Windows10_SOLO") -ForegroundColor Cyan
 
 # Inicio despliegue
 $ini = get-date
@@ -110,14 +108,14 @@ Write-Host("Configuracion de Grupo Seguridad")
 $regla3389 = New-AzureRmNetworkSecurityRuleConfig -Name "regla3389" -Description "Regla 3389" `
 			-Protocol Tcp -SourcePortRange * -DestinationPortRange 3389 -SourceAddressPrefix * -DestinationAddressPrefix * `
 			-Access Allow -Priority 100 -Direction Inbound
-$nsg = New-AzureRmNetworkSecurityGroup -Name win10vseg -ResourceGroupName $rgName -Location $location -SecurityRules $regla3389
+$nsg = New-AzureRmNetworkSecurityGroup -Name win10soloeg -ResourceGroupName $rgName -Location $location -SecurityRules $regla3389
 $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $rgName -Name $vnetName 
 Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name $subnetName -AddressPrefix $subnetPrefix  -NetworkSecurityGroup $nsg
 Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
 # Control tiempo despliegue - Inicio
 $fin = get-date
-Write-Host("Inicio Despliegue Windows10_VS: ",$ini) -ForegroundColor Magenta
-Write-Host("Fin Despliegue Windows10_VS:    ",$fin) -ForegroundColor Magenta
+Write-Host("Inicio Despliegue Windows10_SOLO: ",$ini) -ForegroundColor Magenta
+Write-Host("Fin Despliegue Windows10_SOLO:    ",$fin) -ForegroundColor Magenta
 
-Write-Host("Grupo de Recursos Windows10_VS .... Listo") -Foreground Cyan
+Write-Host("Grupo de Recursos Windows10_SOLO .... Listo") -Foreground Cyan

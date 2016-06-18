@@ -12,8 +12,8 @@ $location = "West Europe"
 # Windows Server
 # $producto = "MicrosoftWindowsServer"
 # Windows, Visual Studio y TFS
-#$producto = "MicrosoftVisualStudio"
+$producto = "MicrosoftVisualStudio"
 # SQL Server
-$producto = "MicrosoftSQLServer"
+#$producto = "MicrosoftSQLServer"
 
 Get-AzureRmVMImageOffer -Location $location -PublisherName $producto

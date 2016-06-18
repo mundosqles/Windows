@@ -32,6 +32,7 @@
     <Compile Include="Offer.ps1" />
     <Compile Include="Login.ps1" />
     <Compile Include="Windows 10 Visual Studio.ps1" />
+    <Compile Include="Windows 10.ps1" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="Build" />

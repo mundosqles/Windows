@@ -14,9 +14,9 @@ $location = "West Europe"
 #$producto = "MicrosoftWindowsServer"
 #$edicion = "WindowsServer"
 # Windows, Visual Studio y TFS
-#$edicion = "VisualStudio"
-#$edicion = "VisualStudio"
+$edicion = "VisualStudio"
+$edicion = "Windows"
 # SQL Server
-$producto = "MicrosoftSQLServer"
-$edicion = "SQL2008R2SP3-WS2008R2SP1"
+#$producto = "MicrosoftSQLServer"
+#$edicion = "SQL2008R2SP3-WS2008R2SP1"
 Get-AzureRmVMImageSku -Location $location -PublisherName $producto -Offer $edicion 
